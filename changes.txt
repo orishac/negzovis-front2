@@ -1,0 +1,23 @@
+added:
+	front:
+		src\Components\Content\Visualization\TirpsContent:
+			NegativeTirps.js
+			NTIRPsTable.js
+			SelectedNTIRPsTable.js
+				
+changed:
+	front:
+		src\Components\Content\Visualization\TirpsContent\TirpsContent.js:
+			added at lines 56-60 the NegativeTirps tab.
+		
+		src\Components\Content\Visualization\TirpsNavigation:
+			added at lines 152-158 the NegativeTirps navigation path.
+				
+	backend:
+		karmalegoweb/src/Visualization/Tali/api.py:
+			added at lines 220-226 the get_negative_data function.
+			
+		karmalegoweb/src/views/tali.py:
+			added at lines 103-106 the get_negative_data function.
+			
+		

@@ -46,6 +46,7 @@ class AddDiscretizationCard extends Component {
 		'TD4C-Entropy-IG',
 		'TD4C-SKL',
 		'Abstraction Per Property',
+		'Sequential'
 	];
 
 	optionsToRender = this.AbMethodOptions.map((option) => <option key={option}>{option}</option>);
@@ -121,6 +122,7 @@ class AddDiscretizationCard extends Component {
 		const bKB = abstraction === 'Knowledge-Based';
 		const bGrad = abstraction === 'Gradient';
 		const bPerProperty = abstraction === 'Abstraction Per Property';
+		const bEmpty = abstraction === 'Sequential';
 
 		let binning;
 
@@ -130,6 +132,8 @@ class AddDiscretizationCard extends Component {
 			binning = 'kbGradient';
 		} else if (bPerProperty) {
 			binning = 'perProperty';
+		} else if (bEmpty) {
+			binning = 'empty'
 		} else {
 			binning = 'regular';
 		}
@@ -326,7 +330,7 @@ class AddDiscretizationCard extends Component {
 								<Col
 									md={1.5}
 									className={'margin-input'}
-									hidden={this.state.Binning === 'perProperty'}
+									hidden={this.state.Binning === 'perProperty' || this.state.Binning === 'empty'}
 								>
 									<Form.Label className={'h5 font-weight-bold text-dark'}>
 										PAA Window Size
@@ -345,7 +349,7 @@ class AddDiscretizationCard extends Component {
 								</Col>
 								<Col xs={1}></Col>
 
-								<Col md={1.5} hidden={this.state.Binning === 'perProperty'}>
+								<Col md={1.5} hidden={this.state.Binning === 'perProperty' || this.state.Binning === 'empty'}>
 									<Form.Label className={'h5 font-weight-bold text-dark'}>
 										Interpolation Gap
 									</Form.Label>
@@ -404,7 +408,7 @@ class AddDiscretizationCard extends Component {
 									</Form.Text>
 								</Col>
 							</Row>
-							<Row hidden={this.state.GradientFile == null && this.state.Binning.localeCompare('kbGradient') == 0}>
+							<Row hidden={this.state.GradientFile == null && (this.state.Binning.localeCompare('kbGradient') == 0 || this.state.Binning.localeCompare('empty') == 0)}>
 								{/* {this.getNumberBins(this.state.GradientFile)} */}
 								{this.renderBinsNames()}
 							</Row>

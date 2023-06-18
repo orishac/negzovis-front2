@@ -4,6 +4,10 @@ export function getTIM(kl_id, class_num) {
 	const params = { kl_id, class_num };
 	return post('getTIM', params);
 }
+export function getNegativeTIM(kl_id) {
+	const params = { kl_id };
+	return post('getNegativeTIM', params);
+}
 export function addTIM(
 	discretizationId,
 	epsilon,
@@ -12,6 +16,11 @@ export function addTIM(
 	numRelations,
 	maxTirpLength,
 	indexSame,
+	negativeMining,
+	maximumNegative,
+	ofo,
+	as,
+	bc,
 	datasetName,
 	isVisualization,
 ) {
@@ -28,9 +37,39 @@ export function addTIM(
 		second_class_name: 'Control',
 		timestamp: 'Minutes',
 		comments: 'no comments',
+		negative_mining: negativeMining,
+		maximum_negatives: maximumNegative,
+		ofo: ofo,
+		as: as,
+		bc: bc,
 		to_visualize: isVisualization,
 	};
 	return post('addTIM', params);
+}
+
+export function addSequentialTIM(
+	gap,
+	minVerSupport,
+	negativeMining,
+	maximumNegative,
+	ofo,
+	as,
+	bc,
+	datasetName,
+	isVisualization,
+) {
+	const params = {
+		'Max Gap': gap,
+		min_ver_support: minVerSupport,
+		datasetName: datasetName,
+		negative_mining: negativeMining,
+		maximum_negatives: maximumNegative,
+		ofo: ofo,
+		as: as,
+		bc: bc,
+		to_visualize: isVisualization,
+	};
+	return post('addSequentialTIM', params);
 }
 
 export function deleteKarmaLego(iter, datasetName){

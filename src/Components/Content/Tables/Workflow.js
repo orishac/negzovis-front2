@@ -37,20 +37,22 @@ class Workflow extends Component {
 							{this.props.datasetName} Info
 						</Link>
 					</div>
-					<div className='flex-fill'>
-						<Link
-							className={
-								sessionStorage.getItem('Workflow').localeCompare('Disc') === 0
-									? 'btn btn-workflow-active btn-arrow-right'
-									: 'btn btn-workflow btn-arrow-right'
-							}
-							id={'Disc'}
-							onClick={this.changeTab}
-							to={`/Process/${this.props.discretizationId}/Disc`}
-						>
-							Temporal Abstraction
-						</Link>
-					</div>
+					{!this.props.isSequential && (
+						<div className='flex-fill'>
+							<Link
+								className={
+									sessionStorage.getItem('Workflow').localeCompare('Disc') === 0
+										? 'btn btn-workflow-active btn-arrow-right'
+										: 'btn btn-workflow btn-arrow-right'
+								}
+								id={'Disc'}
+								onClick={this.changeTab}
+								to={`/Process/${this.props.discretizationId}/Disc`}
+							>
+								Temporal Abstraction
+							</Link>
+						</div>
+					)}
 					<div className='flex-fill'>
 						<Link
 							className={
@@ -62,7 +64,7 @@ class Workflow extends Component {
 							onClick={this.changeTab}
 							to={`/Process/${this.props.discretizationId}/TIM`}
 						>
-							Time Intervals Mining
+							Pattern Mining
 						</Link>
 					</div>
 					<div className='flex-fill'>

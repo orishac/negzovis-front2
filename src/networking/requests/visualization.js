@@ -15,6 +15,12 @@ export function getEntities(visualizationId) {
 	return post('getEntities', params);
 }
 
+export function getVMapFile(visualizationId) {
+	const params = { visualization: visualizationId };
+	return post('getVMapFileFromVisualization', params);
+}
+
+
 export function getStates(visualizationId) {
 	const params = { visualization: visualizationId };
 	return post('getStates', params);

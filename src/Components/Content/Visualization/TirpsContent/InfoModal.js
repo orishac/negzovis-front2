@@ -8,7 +8,6 @@ const InfoModal = (props) => {
     const [modal, setModal] = useState(false)
     const [navbar, setNavBar] = useState([])
     const createNavBar = (Navbar) => {
-        console.log(Navbar)
         const lst = [...Navbar].map((tirp, idx) => (
 			<div className=' m-0'>
 					{tirp._TIRP__symbols.map((object, i) => {

@@ -12,6 +12,7 @@ package-lock.json
 
 # testing
 /coverage
+src/Components/Content/Visualization/Negatives/tests/__snapshots__/
 
 # production
 /build
@@ -28,3 +29,6 @@ yarn-debug.log*
 yarn-error.log*
 
 index.css
+/test-results/
+/playwright-report/
+/playwright/.cache/
