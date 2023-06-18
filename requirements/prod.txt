@@ -1,2 +1,0 @@
-Flask-SQLAlchemy==2.4.4
-mod-wsgi==4.8.0
