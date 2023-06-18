@@ -1,0 +1,17 @@
+@import 'settings.css';
+@import 'center-symbol.css';
+@import 'custom-nav-bar.css';
+@import 'explore-tree.css';
+@import 'general.css';
+@import 'login.css';
+@import 'modal.css';
+@import 'register.css';
+@import 'search-intervals.css';
+@import 'side-symbols-list.css';
+@import 'tirp-matrix.css';
+@import 'tooltips.css';
+@import 'upload-data.css';
+@import 'upload-workflow.css';
+@import 'visualization.css';
+@import 'workflow.css';
+@import 'uploader.css';

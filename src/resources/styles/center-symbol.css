@@ -1,0 +1,31 @@
+.metrics-table {
+	background-color: #ededed;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+.metrics-table tbody > tr > th {
+	font-weight: 400;
+	border: none;
+	border-radius: 0;
+	overflow-wrap: anywhere;
+}
+
+.metrics-table tr:last-child {
+	border: none;
+}
+
+.center-symbol-title {
+	background-color: var(--primary-color);
+	color: white;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.center-symbol-title:hover {
+	background-color: #18222b;
+}
+
+.metrics-table th.marked {
+	font-weight: bold;
+}

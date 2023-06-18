@@ -1,0 +1,14 @@
+.filter-input::placeholder {
+	/* Chrome, Firefox, Opera, Safari 10.1+ */
+	color: #d7dfdf !important;
+	opacity: 0.7; /* Firefox */
+}
+
+.filter-input,
+.filter-input:focus,
+.filter-input:target {
+	color: #d7dfdf !important;
+	border: none !important;
+	background-color: #565a5a;
+	box-shadow: none !important;
+}

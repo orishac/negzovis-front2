@@ -1,0 +1,22 @@
+#login {
+	min-width: 500px;
+	width: 50%;
+}
+
+#login .row div {
+	flex-grow: 1;
+	max-width: 100%;
+}
+
+#login .buttons {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	column-gap: 35px;
+}
+
+#login h3 {
+	padding-left: 12px;
+	padding-bottom: 20px;
+}

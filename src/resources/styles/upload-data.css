@@ -1,0 +1,19 @@
+.upload-form {
+	min-width: fit-content;
+	width: 50%;
+}
+
+.upload-form-container {
+	justify-content: center;
+	display: flex;
+}
+
+.no-margin {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.upload-form .row div {
+	flex: none;
+	max-width: none;
+}

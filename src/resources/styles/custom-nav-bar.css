@@ -1,0 +1,28 @@
+.custom-nav-bar {
+	width: 100%;
+	flex-direction: row;
+	display: flex;
+	justify-content: space-between;
+	height: 50px;
+	align-items: stretch;
+}
+
+.custom-nav-bar-item {
+	font-weight: 500;
+	font-size: 20px;
+	flex: none;
+	margin: 15px 20px;
+	background-color: var(--primary-color);
+	text-transform: none;
+}
+
+.custom-nav-bar-item:visited {
+	background-color: var(--primary-color);
+	color: #fff;
+}
+
+.custom-nav-bar-item:hover {
+	background-color: #ededed;
+	color: #727272;
+	transition: all 0.2s;
+}

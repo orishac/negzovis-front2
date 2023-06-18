@@ -1,0 +1,72 @@
+.btn-hugobot,
+.btn-hugobot:visited {
+	background-color: white;
+	border-color: var(--primary-color);
+	border-radius: 5px;
+	color: var(--primary-color);
+}
+
+.btn-hugobot:active,
+.btn-hugobot:hover,
+.btn-workflow {
+	background-color: var(--primary-color);
+	color: white;
+}
+
+.btn-hugobot-error,
+.btn-hugobot-error:visited {
+	background-color: #e07d7d;
+	border-color: var(--primary-color);
+	border-radius: 5px;
+	color: var(--primary-color);
+}
+
+.btn-hugobot-error:active,
+.btn-hugobot-error:hover {
+	background-color: var(--primary-color);
+	color: #e07d7d;
+}
+
+.btn-workflow-active {
+	background-color: #1d7d74;
+}
+
+.btn-upload,
+.btn-upload:hover {
+	background-color: white;
+	color: var(--primary-color);
+}
+
+.btn-upload-active {
+	background-color: var(--primary-color);
+	color: white;
+}
+
+.flow-btn-active {
+	background-color: #1d7d74;
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
+}
+
+.flow-btn {
+	background-color: white;
+	color: var(--primary-color);
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
+}
+
+.flow-btn:hover {
+	background-color: var(--primary-color);
+	color: white;
+}
+
+.in-line {
+	display: inline-block;
+	margin: 0;
+}
+
+.header-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}

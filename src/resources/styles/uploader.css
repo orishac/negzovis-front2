@@ -1,0 +1,101 @@
+.uploader-container {
+	display: flex;
+	justify-content: space-between;
+	flex-flow: row wrap;
+	align-items: stretch;
+	column-gap: 1%;
+
+	& > div {
+		display: flex;
+		flex-direction: column;
+		flex: 1 !important;
+
+		& > .dropzone.dz-started {
+			flex-grow: 1;
+		}
+	}
+}
+
+.dropzone {
+	--border-style: 1px solid #00000020;
+
+	border: var(--border-style);
+
+	& button {
+		width: 100%;
+		background-color: #e9ecef;
+		line-height: 1.5;
+		border: none;
+		transition: background-color 0.3s;
+
+		&:hover {
+			background-color: #e9ecef55;
+		}
+	}
+
+	&.dz-started button {
+		border-bottom: var(--border-style);
+	}
+
+	& .dz-preview {
+		max-width: 250px;
+		width: 100%;
+		margin: 0;
+		padding: 0.5rem;
+
+		& .dz-image {
+			display: none;
+		}
+
+		& .dz-details {
+			display: flex;
+			align-items: center;
+
+			& div {
+				max-width: 50%;
+				flex: 1;
+			}
+
+			/* There is also a pure css way of doing this
+			https://css-tricks.com/line-clampin/ */
+			& span {
+				overflow: hidden;
+				/* stylelint-disable-next-line value-no-vendor-prefix */
+				display: -webkit-box;
+				-webkit-line-clamp: 1;
+				-webkit-box-orient: vertical;
+			}
+		}
+
+		&.dz-complete .dz-success-mark,
+		&.dz-complete .dz-error-mark {
+			left: auto;
+			width: auto;
+			height: auto;
+			top: auto;
+			margin: 0;
+			position: relative;
+			display: flex !important;
+			justify-content: center;
+
+			/* https://codepen.io/jumarjuaton/full/mdJYWYq */
+		}
+
+		& .dz-success-mark {
+			filter: invert(65%) sepia(74%) saturate(261%) hue-rotate(107deg) brightness(130%)
+				contrast(92%);
+		}
+
+		& .dz-error-mark {
+			filter: invert(57%) sepia(49%) saturate(718%) hue-rotate(322deg) brightness(100%)
+				contrast(89%);
+		}
+
+		&.dz-error .dz-success-mark {
+			display: none !important;
+		}
+		&:not(.dz-error) .dz-error-mark {
+			display: none !important;
+		}
+	}
+}

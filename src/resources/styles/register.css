@@ -1,0 +1,22 @@
+#register {
+	min-width: 500px;
+	width: 50%;
+}
+
+#register .row div {
+	flex-grow: 1;
+	max-width: 100%;
+}
+
+#register .buttons {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	column-gap: 35px;
+}
+
+#register h3 {
+	padding-left: 12px;
+	padding-bottom: 20px;
+}

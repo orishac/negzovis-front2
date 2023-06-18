@@ -1,0 +1,43 @@
+.radio-btn-label {
+	font-size: 16px !important;
+	height: auto;
+	display: flex;
+	align-items: center;
+	line-height: 25px;
+	padding-top: 5;
+	padding-bottom: 5;
+	justify-content: center;
+	text-transform: none;
+	font-weight: 700;
+	background-color: #ededed;
+	color: #727272;
+}
+
+.clear-btn {
+	font-weight: 700;
+	border-radius: 5px;
+}
+
+.clear-btn,
+.clear-btn:focus,
+.clear-btn:visited {
+	background-color: #ededed;
+	color: #727272;
+}
+
+.clear-btn:hover {
+	background-color: var(--primary-color);
+	color: #ededed;
+}
+
+.clear-btn:active {
+	background-color: #0062cc;
+}
+
+.timeline-container > div {
+	height: 95%;
+}
+
+.timeline-container > div > div {
+	height: 100%;
+}

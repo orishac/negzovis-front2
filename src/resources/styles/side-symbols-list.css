@@ -1,0 +1,198 @@
+.side-symbols-container {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.side-symbols-table-container {
+	flex-grow: 1;
+	position: relative;
+	border-radius: 5px;
+}
+
+.side-symbols-table-scrollable {
+	max-height: 100%;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	position: absolute;
+	border-radius: 5px;
+}
+
+.side-symbols-table > thead {
+	position: sticky;
+	top: 0;
+}
+
+.side-symbols-table {
+	background-color: #ededed;
+	border-radius: 5px;
+	margin: 0;
+}
+
+.side-symbols-table thead th {
+	border: none;
+	border-radius: 0;
+}
+
+.side-symbols-table thead tr {
+	/* Borders doesn't work with the sticky header */
+	border-bottom: 0 solid #161616e0;
+}
+
+.side-symbols-table thead {
+	/* Borders doesn't work with the sticky header */
+	box-shadow: 0 2px 14px -3px #000000b3;
+}
+
+.list {
+	list-style-type: none;
+}
+
+.pie-chart {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.pie-chart button {
+	font-weight: 700;
+	border-radius: 5px;
+	text-transform: none;
+}
+
+.pie-chart button,
+.pie-chart button:focus,
+.pie-chart button:visited {
+	background-color: var(--primary-color);
+	color: #ededed;
+}
+
+.pie-chart button:hover {
+	background-color: #ededed;
+	color: #727272;
+}
+
+input {
+	color: rgb(0 0 0) !important;
+}
+
+::placeholder {
+	color: rgb(0 0 0) !important;
+}
+
+.filter-container {
+	background-color: #ededed;
+}
+
+.input-filter-container {
+	display: flex;
+	column-gap: 10px;
+	align-items: baseline;
+	overflow: visible;
+	margin-left: 20px;
+}
+
+.input-filter-container i {
+	color: #616161;
+}
+
+.input-filter-container:focus {
+	background-color: red;
+}
+
+.input-filter {
+	margin: 0 !important;
+	font-weight: 500 !important;
+	height: 1.5rem !important;
+	border: none !important;
+	width: auto !important;
+	flex-grow: 1;
+}
+
+.input-filter::placeholder {
+	color: #616161 !important;
+}
+
+.input-filter:focus {
+	border: none !important;
+	box-shadow: none !important;
+}
+
+.rare-tirp-row {
+	background-color: #f0d073;
+	border-color: #f0d073;
+}
+
+.marked-tirp.prefix {
+	background-color: #ff000079;
+	border-color: #ff000079;
+}
+
+.side-symbols-table tbody tr.prefix:hover:not(.marked-tirp) {
+	background-color: #ff000026;
+	border-color: #ff000026;
+}
+
+.side-symbols-table tbody tr.suffix:hover:not(.marked-tirp) {
+	background-color: #00800026;
+	border-color: #00800026;
+}
+
+.marked-tirp.suffix {
+	background-color: #00800079;
+	border-color: #00800079;
+}
+
+.selected-symbol-tirp {
+	border: 5px solid yellow;
+}
+
+.side-symbols-table tbody tr {
+	transition: all 0.3s;
+}
+
+.side-symbols-table td {
+	text-align: center;
+	border-radius: 0;
+	border: none;
+}
+
+.pie-opening-container {
+	height: 0;
+	opacity: 0;
+	transition: all 0.3s;
+	overflow: 'hidden';
+}
+
+.pie-opening-container.open {
+	height: 300px;
+	opacity: 1;
+}
+
+.sort-icon {
+	opacity: 0;
+	position: absolute;
+	transition: opacity 0.3s;
+	height: 10px;
+}
+
+.sort-icon.sorted {
+	opacity: 1;
+}
+
+.side-symbols-header {
+	background-color: var(--primary-color);
+	color: white;
+	white-space: nowrap;
+}
+
+.side-symbols-header.can-sort {
+	transition: background-color 0.3s;
+	cursor: pointer;
+}
+
+.side-symbols-header.can-sort:hover {
+	background-color: #18222b;
+}

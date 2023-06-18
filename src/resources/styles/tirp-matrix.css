@@ -1,0 +1,21 @@
+.tirp-matrix-table {
+	background-color: rgb(255 255 251);
+	border: 3px solid rgb(14 173 236);
+	font-size: large;
+	width: 100%;
+	height: 100%;
+	margin-top: 5%;
+}
+
+.tirp-matrix-table thead {
+	font-weight: bold;
+	font-size: large;
+}
+
+.tirp-matrix-table tbody td {
+	font-size: large;
+}
+
+.cell {
+	font-size: large;
+}

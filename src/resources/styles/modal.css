@@ -1,0 +1,11 @@
+.my-modal {
+	margin-top: 10%;
+	width: 50%;
+	height: 40%;
+	background-color: rgb(255 255 255);
+}
+
+.my-modal-footer {
+	margin-top: 5%;
+	align-items: center;
+}

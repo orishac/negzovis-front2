@@ -1,0 +1,69 @@
+.workflow-container {
+	display: flex;
+	padding-right: 20px;
+}
+
+.btn-arrow-right,
+.btn-arrow-left {
+	position: relative;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-weight: bold;
+	width: 100%;
+}
+
+.btn-arrow-right::before,
+.btn-arrow-right::after,
+.btn-arrow-left::before,
+.btn-arrow-left::after {
+	/* make two squares (before and after), looking similar to the button */
+	content: '';
+	position: absolute;
+	top: 5px; /* move it down because of rounded corners */
+	width: 26px; /* same as height */
+	height: 26px; /* button_outer_height / sqrt(2) */
+	background: inherit; /* use parent background */
+	border: inherit; /* use parent border */
+	border-left-color: transparent; /* hide left border */
+	border-bottom-color: transparent; /* hide bottom border */
+	border-radius: 0 4px 0 0; /* round arrow corner, the shorthand property doesn't accept "inherit" so it is set to 4px */
+	transform: rotate(45deg); /* rotate right arrow squares 45 deg to point right */
+
+	--webkit-border-radius: 0 4px 0 0;
+	--moz-border-radius: 0 4px 0 0;
+}
+
+.btn-arrow-right::before,
+.btn-arrow-left::before {
+	/* align the "before" square to the left */
+	left: -13px;
+}
+
+.btn-arrow-right::after,
+.btn-arrow-left::after {
+	/* align the "after" square to the right */
+	right: -13px;
+}
+
+.btn-arrow-right::before,
+.btn-arrow-left::after {
+	/* bring arrow pointers to front */
+	z-index: 1;
+
+	/* hide arrow tails background */
+	background-color: white;
+}
+
+.btn-arrow-right::after,
+.btn-arrow-left::before {
+	/* bring arrow pointers to front */
+	z-index: 2;
+}
+
+.navbar-margin {
+	margin-right: 5ex;
+}
+
+.karma-nav-bar {
+	width: 100%;
+}
