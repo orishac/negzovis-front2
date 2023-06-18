@@ -62,6 +62,9 @@ class UploadNewDataset extends Component {
 					<Button className={'ml-4'} onClick={() => this.props.toImport()}>
 						Import Dataset
 					</Button>
+					<Button className={'ml-4'} onClick={() => this.props.toSequential()}>
+						Upload Sequential Dataset
+					</Button>
 				</Card.Header>
 				<Card.Body className='upload-form-container'>
 					<Form onSubmit={(e) => this.onFormSubmit(e)} className='upload-form'>

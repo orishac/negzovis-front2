@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import TiprsContent from './TirpsContent/TirpsContent';
 import TirpsNavigation from './TirpsNavigation';
 
-import { getEntities, getStates, initiateTirps } from '../../../networking/requests/visualization';
+import { getEntities, getStates, initiateTirps, getVMapFile } from '../../../networking/requests/visualization';
 import { getVisualizationInfo } from '../../../networking/requests/datasetsStats';
 
 /**
@@ -13,6 +13,7 @@ class TirpsApp extends Component {
 	state = {
 		two_class: false,
 		entities: false,
+		negative: false,
 	};
 	
 	componentDidMount() {
@@ -23,7 +24,9 @@ class TirpsApp extends Component {
 	initilizeRootScope = (visualizationId) => {
 		this.getRoot(visualizationId);
 		this.getFullEntities(visualizationId);
-		this.getFullStates(visualizationId);
+		if (localStorage.negative === 'false') {
+			this.getFullStates(visualizationId);
+		}
 		this.getMetaData(visualizationId);
 		localStorage.States = [];
 		window.pathOfTirps = [];
@@ -47,13 +50,35 @@ class TirpsApp extends Component {
 	async getRoot(visualizationId) {
 		const data = await initiateTirps(visualizationId);
 
-		const arrOfRoot = data.Root;
-		let jsons = [];
-		for (let i = 0; i < arrOfRoot.length; i++) {
-			let tirp = arrOfRoot[i];
-			jsons.push(tirp);
+		let negative = true;
+		const stringied = JSON.parse(JSON.stringify(data));
+		console.log(typeof stringied)
+		if (stringied.hasOwnProperty('Root')) {
+			negative = false
 		}
-		localStorage.rootElement = JSON.stringify(jsons);
+		const VMAPFile = await getVMapFile(visualizationId)
+
+		if (negative) {
+			localStorage.rootElement = JSON.stringify(data);
+			localStorage.negative = 'true'
+			this.setState({
+				negative: 'true'
+			});
+			localStorage.VMapFile = JSON.stringify(VMAPFile)
+		}
+		else {
+			this.setState({
+				negative: 'false'
+			});
+			const arrOfRoot = data.Root;
+			let jsons = [];
+			for (let i = 0; i < arrOfRoot.length; i++) {
+				let tirp = arrOfRoot[i];
+				jsons.push(tirp);
+			}
+			localStorage.rootElement = JSON.stringify(jsons);
+			localStorage.negative = 'false'
+		}
 	}
 
 	//Entities
@@ -68,6 +93,7 @@ class TirpsApp extends Component {
 	//States
 	getFullStates(visualizationId) {
 		getStates(visualizationId).then((data) => {
+			console.log(data)
 			let table = JSON.stringify(data);
 			localStorage.States = table;
 			this.forceUpdate();
@@ -77,7 +103,7 @@ class TirpsApp extends Component {
 	render() {
 		return (
 			<div className='TirpsApp'>
-				<TirpsNavigation entities={this.state.entities} two_class={this.state.two_class} />
+				<TirpsNavigation entities={this.state.entities} two_class={this.state.two_class} negative={this.state.negative} />
 				<TiprsContent />
 			</div>
 		);

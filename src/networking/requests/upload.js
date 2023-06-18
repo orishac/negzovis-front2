@@ -30,6 +30,31 @@ export function uploadDataset(
 	return post('upload', params);
 }
 
+export function uploadSequentialDataset(
+	datasetName,
+	category,
+	publicPrivate,
+	file,
+	description,
+	datasetSource,
+	rawDataUuid,
+	vmapUuid,
+	entitiesUuid
+) {
+	const params = {
+		datasetName,
+		category,
+		publicPrivate,
+		file,
+		description,
+		datasetSource,
+		rawDataUuid,
+		vmapUuid,
+		entitiesUuid,
+	};
+	return post('upload_sequential', params);
+}
+
 export function importDataset(
 	datasetName,
 	category,

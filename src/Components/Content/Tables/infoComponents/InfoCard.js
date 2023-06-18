@@ -31,7 +31,6 @@ class InfoCard extends Component {
 	}
 
 	render() {
-		console.log(this.props);
 		return (
 			<Card>
 				<Card.Header className={'h3 bg-hugobot'}>

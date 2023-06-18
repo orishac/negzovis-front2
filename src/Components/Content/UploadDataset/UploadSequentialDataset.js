@@ -4,18 +4,19 @@ import { Button, Card, Col, Form, Row } from 'react-bootstrap';
 
 import FormElement from '../../Login/FormElement';
 import SelectElement from '../../Login/SelectElement';
-import { importDataset } from '../../../networking/requests/upload';
+import { uploadSequentialDataset } from '../../../networking/requests/upload';
 import { errorAlert, successAlert } from '../../SweetAlerts';
-import Swal from 'sweetalert2';
-
 import FileUploader from './FileUploader';
+import SequentialFileUploader from './SequentialFileUploader';
+import Swal from 'sweetalert2';
 
 /**
  * this class is the actual form of the dataset upload,
  * is gets dataset name, category, description, is it public or private, dataset source.
  * the format of the dataset file is csv and it checks the csv format
  */
-class ImportDataset extends Component {
+
+class UploadSequentialDataset extends Component {
 	onFormSubmit(e) {
 		e.preventDefault(); // Stop form submit
 		Swal.fire({
@@ -27,20 +28,21 @@ class ImportDataset extends Component {
 			allowEscapeKey: false,
 			allowEnterKey: false,
 		});
-		importDataset(
+		uploadSequentialDataset(
 			this.props.details.datasetName,
 			this.props.details.category,
 			this.props.details.publicPrivate,
 			this.props.details.file,
 			this.props.details.description,
 			this.props.details.datasetSource,
-			this.props.details.zipUuid
+			this.props.details.rawDataUuid,
+			this.props.details.vmapUuid,
 		)
 			.finally(() => Swal.close())
 			.then(() => {
 				successAlert(
 					'New Dataset!',
-					`Your dataset, ${this.props.details.datasetName}, as been imported successfully`
+					`Your dataset, ${this.props.details.datasetName}, as been uploaded successfully`
 				).finally(() => {
 					window.open('#/Home', '_self');
 				});
@@ -56,14 +58,12 @@ class ImportDataset extends Component {
 		return (
 			<Card>
 				<Card.Header className={'bg-hugobot header-container'}>
-					<Card.Text className={'h3 text-hugobot in-line'}>
-						Upload Existing Dataset
-					</Card.Text>
+					<Card.Text className={'h3 text-hugobot in-line'}>Upload New Sequential Dataset</Card.Text>
+					<Button className={'ml-4'} onClick={() => this.props.toImport()}>
+						Import Dataset
+					</Button>
 					<Button className={'ml-4'} onClick={() => this.props.toUpload()}>
 						Upload New Dataset
-					</Button>
-					<Button className={'ml-4'} onClick={() => this.props.toSequential()}>
-						Upload Sequential Dataset
 					</Button>
 				</Card.Header>
 				<Card.Body className='upload-form-container'>
@@ -90,17 +90,38 @@ class ImportDataset extends Component {
 							<Col md={5}>
 								<div className='uploader-container'>
 									<div>
-										Visualization Zip
-										<FileUploader
-											onUpload={(uuid) =>
+										Raw Data
+										<SequentialFileUploader
+											onUpload={(uuid) => {
 												this.props.setDetails({
 													...this.props.details,
-													zipUuid: uuid,
-												})
-											}
-											acceptedFiles='.zip'
+													rawDataUuid: uuid,
+												});
+											}}
 										/>
 									</div>
+									<div>
+										Variables Map
+										<FileUploader
+											onUpload={(uuid) => {
+												this.props.setDetails({
+													...this.props.details,
+													vmapUuid: uuid,
+												});
+											}}
+										/>
+									</div>
+									{/* <div>
+										Entities (Optional)
+										<FileUploader
+											onUpload={(uuid) => {
+												this.props.setDetails({
+													...this.props.details,
+													entitiesUuid: uuid,
+												});
+											}}
+										/>
+									</div> */}
 								</div>
 							</Col>
 						</Row>
@@ -121,7 +142,7 @@ class ImportDataset extends Component {
 							type={'submit'}
 							style={{ marginLeft: 15 }}
 						>
-							Import Dataset
+							Upload & Validate Data
 						</Button>
 					</Form>
 				</Card.Body>
@@ -129,4 +150,4 @@ class ImportDataset extends Component {
 		);
 	}
 }
-export default ImportDataset;
+export default UploadSequentialDataset;
